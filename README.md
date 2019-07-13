@@ -1,2 +1,1 @@
-# regionales-saisonales-kochen
- 
+# mi2-projekt
