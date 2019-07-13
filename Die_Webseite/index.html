@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Saisonales Regionales Kochen</title>
+	<!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.transitions.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
+
+    <style>
+        li {
+        display: block;
+        transition-duration: 0.5s;
+        }
+
+        li:hover {
+        cursor: pointer;
+        }
+
+        ul li ul {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        transition: all 0.5s ease;
+        margin-top: 1rem;
+        left: 0;
+        display: none;
+        }
+
+        ul li:hover > ul,
+        ul li ul:hover {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+        }
+
+        ul li ul li {
+        clear: both;
+        width: 130%;
+        }
+
+        
+
+        #map .fruitmap{
+            width: 100%;
+            height: 355px;
+        }
+
+        #fruitmap{
+            overflow: hidden;
+        }
+
+        #element a{
+        color: #111111;
+        }
+        .einrucken{
+            margin: 0% 0% 0% 10%;
+        }
+        @media (max-width:992px){
+            .einrucken{
+            margin: 0% 0% 0% 0%;
+            }
+            .jahreszeiten_info{
+                display: none;
+            }
+
+            .preview{
+                position: absolute;
+                top: -6px;
+                right: 2px;
+                opacity: 0.8;
+            }
+
+            #portfolio .portfolio-item{
+                padding: 5px;
+            }
+
+            .versteckt{
+                display: none;
+            }
+
+            #map .fruitmap{
+            height: 375px;
+            }
+
+        }
+        .shadow{
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+        .shadow2{
+            text-shadow: 2px 2px 2px #000000;
+        }
+        .shadow3{
+            text-shadow: 2px 2px 2px #000000;
+        }
+
+        .weatherbox {
+            float: left;
+            width: 30%;
+            margin-right: 3.33333%;
+            padding: 20px;
+            background: #eee;
+            box-sizing: border-box;
+        }
+
+        .weatherlist{
+            text-align: center;
+        }
+
+        .impress_media{
+            margin-bottom: -10px;
+            width: 100%;
+            border: 1px solid black;
+            border-top-color: aqua;
+        }
+        .carousel-content{
+            padding-left: 2px;
+            background: rgba(0, 48, 15, 0.6);
+            color: #fff;
+        }
+    </style>
+
+</head><!--/head-->
+
+<body id="home" class="homepage">
+
+    <header id="header">
+        <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                </div>
+
+                <!--Navigations Bar -->
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="scroll active"><a href="#home">Home</a></li>
+                        <li class="scroll"><a href="#features">Projekt</a></li>
+                        <li class="scroll"><a href="#about">saisonales Kochen</a></li>
+                        <li class="scroll"><a href="#portfolio">Jahreszeiten</a></li>
+                        <li class="scroll"><a href="#work-process">Daily Cooking</a></li>
+                        <li class="scroll"><a href="#map">Karte</a></li>
+                        <li class="scroll"><a href="#info">Infos</a></li>
+                        <li class="scroll"><a href="#meet-team">Über uns</a><ul class="dropdown">
+                            <li id="element"><a href="#meet-team2">Team</a></li>
+                            <li id="element"><a href="#pricing">Daten</a></li>
+                            <li id="element"><a href="#get-in-touch">Impressum</a></li>
+                            </ul></li>
+
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+
+    <!--Hier werden die Slider am Anfang geladen -->
+    <section id="main-slider">
+        <div class="owl-carousel">
+          <div class="item" id="item1">
+              <div class="slider-inner">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <div class="carousel-content">
+                                  <h2> <span>Projekt</span></h2>
+                                  <p>  <span> Das Projekt "Saisonales Regionales Kochen" entstand in unserem Studiengang Informationswissenschaft an der Heinrich-Heine-Universität. Nähere Informationen zum Projekt gibt es hier.</span> </p>
+                                  <a class="btn btn-primary btn-lg" href="#features">Zum Projektplan</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div><!--/.item-->
+          <div class="item" id="item2">
+             <div class="slider-inner">
+                 <div class="container">
+                     <div class="row">
+                         <div class="col-sm-6">
+                             <div class="carousel-content">
+                                 <h2><span>Saisonales Kochen</span></h2>
+                                 <p><span>Regionales und saisonales Kochen ist gut für die Umwelt. Andere interessante Informationen zu diesem Thema gibt es hier zu finden.</span></p>
+                                 <a class="btn btn-primary btn-lg" href="#about">Saisonales Kochen</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div><!--/.item-->
+         <div class="item" id="item3">
+              <div class="slider-inner">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <div class="carousel-content">
+                                  <h2><span>Jahreszeiten</span></h2>
+                                  <p> <span> Alle Früchte haben ihre eigene Reifezeit. Hier gibt es eine Übersicht zu den Reifezeiten sortiert nach Jahreszeiten.</span> </p>
+                                  <a class="btn btn-primary btn-lg" href="#portfolio">Jahreszeitenübersicht</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div><!--/.item-->
+          <div class="item" id="item4">
+            <div class="slider-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h2><span> Daily Cooking</span></h2>
+                                <p><span> Mit Obst lassen sich viele leckere Gerichte erstellen. Hier haben wir für jeden Tag ein spannendes Rezept.</span> </p>
+                                <a class="btn btn-primary btn-lg" href="#work-process">Rezepte</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div><!--/.item-->
+          <div class="item" id="item5">
+              <div class="slider-inner">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <div class="carousel-content">
+                                  <h2><span>Karte</span></h2>
+                                  <p><span>Damit das reife Obst in der Umgebung auch leicht gefunden werden kann, haben wir eine Karte erstellt, auf der alle pflückbaren Früchte in Düsseldorf markiert sind. </span></p>
+                                  <a class="btn btn-primary btn-lg" href="#map">Fruchtstandorte</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div><!--/.item-->
+          <div class="item" id="item6">
+              <div class="slider-inner">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <div class="carousel-content">
+                                  <h2><span> Infos</span></h2>
+                                  <p><span> Es gibt Unmengen an Informationen zu den verschiedenen Früchten. Interessantes Wissen gibt es hier zu finden.</span> </p>
+                                  <a class="btn btn-primary btn-lg" href="#info">Informationen</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div><!--/.item-->
+          <div class="item" id="item7">
+              <div class="slider-inner">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <div class="carousel-content">
+                                  <h2><span> Über Uns</span></h2>
+                                  <p><span>Natürlich steckt auch hinter dieser Seite ein reales Team. Wer mehr über uns und unsere Daten erfahren möchte, kann dies hier tun.</span></p>
+                                  <a class="btn btn-primary btn-lg" href="#meet-team">Das Team</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div><!--/.item-->
+        </div><!--/.owl-carousel-->
+    </section><!--/#main-slider-->
+
+    <!-- Kurzer Hinweis zu den Bäumen-->
+    <section id="cta" class="wow fadeIn">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h2>Hallo Zusammen</h2>
+                    <p>Bitte beachtet, dass alle Pflanzen, die von uns aufgelistet werden, auf öffentlichem Grün stehen und somit der Gemeinschaft gehören. Um auch in Zukunft die Möglichkeit zu haben, Beeren und Früchte zu sammeln und die Natur zu genießen, wollen wir euch sehr darum bitten, sorgsam mit den Pflanzen umzugehen. Dies sollte nicht nur ein Vorsatz für die von uns aufgelisteten Bäume, sondern auch für alle anderen Pflanzen sein.<br>Wir danken euch für euer Verständnis.</p>
+                </div>
+                <div class="col-sm-3 text-right">
+                    <a class="btn btn-primary btn-lg" href="#map">Zur Karte!</a>
+                </div>
+            </div>
+        </div>
+    </section><!--/#cta-->
+
+    <!-- Das Projekt mit all seinen Facetten wird hier eingeführt-->
+   <section id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Das Projekt</h2>
+                <p class="text-center wow fadeInDown">Frische Früchte der Saison und der Region auszuwählen, ist der erste Schritt, um schmackhaftere und gesündere Mahlzeiten zuzubereiten.</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 wow fadeInLeft">
+                    <img class="img-responsive" src="images/cherry_collage.jpg" alt="cherry_collage">
+                </div>
+                <div class="col-sm-8">
+                    <div class="media service-box wow fadeInRight">
+                        <div class="pull-left">
+                            <i class="fa fa-compass"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-body">Thema des Projektes</h4>
+                            <p> Das Thema unseres Projektes ist Saisonales Regionales Kochen in Düsseldorf. <br> Das Kochen mit saisonalen und regionalen Früchten ist nicht schwer, erfordert jedoch ein wenig Know-how und Planung. Genau deshalb haben wir unser Projekt entwickelt.</p>
+                        </div>
+                    </div>
+
+                    <div class="media service-box wow fadeInRight">
+                        <div class="pull-left">
+                            <i class="fa fa-key"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Ziel #1</h4>
+                            <p>Mit diesem Projekt wollen wir Saisonales Regionales Kochen für Düsseldorfer leichter und zugänglicher machen. <br> Wann sind die Blüte- und Reifezeiten der Früchte in Düsseldorf? Gibt’s die saisonalen Früchte in meiner Nähe? Was kann ich aus den ausgewählten Früchten kochen? Die Antworten auf diese Fragen und mehrere weitere Informationen findet Ihr auf unseren Seiten.</p>
+                        </div>
+                    </div>
+
+                    <div class="media service-box wow fadeInRight">
+                        <div class="pull-left">
+                            <i class="fa fa-book"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Ziel #2</h4>
+                            <p>Wir sind Studenten und lernen, die Daten aus mehreren Ressourcen zu sammeln, sie zu bearbeiten und sichtbar darzustellen, so dass Ihr sie leicht versteht und in eigenes Wissen umwandeln könnt.</p>
+                        </div>
+                    </div>
+					<div class="media service-box wow fadeInRight">
+                        <div class="pull-left">
+                            <i class="fa fa-globe"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Besonderheiten</h4>
+                            <p>Was unser Projekt auszeichnet, ist, dass wir es offen zugänglich machen! Wir benutzen offene Daten und stellen unsere Daten sowie den Code frei zur Verfügung. Somit handeln wir ganz im Sinne der Open Data Bewegung.</p>
+                        </div>
+                    </div>
+
+                    <div class="media service-box wow fadeInRight">
+                        <div class="pull-left">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Weiterentwicklung</h4>
+                            <p>Wir sind nicht perfekt, aber wir sind offen für neue Ideen und Vorschläge! Schreib uns an, wenn Du auch zum Projekt Saisonales Regionales Kochen beitragen willst.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!---features-->
+
+    <!-- Regionales Saisonales Kochen Informationstext und Videos-->
+    <section id="about">
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Saisonales Kochen</h2>
+                <p class="text-center wow fadeInDown">Kochen mit regionalen und saisonalen Lebensmitteln ist nicht nur lecker, sondern auch gut für die Umwelt.<br>Also warum nicht heute mal Gemüse vom Markt kaufen oder Obst selbst pflücken?</p>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 wow fadeInLeft">
+                    <h3 class="column-title">Verbraucherzentrale NRW</h3>
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe src="https://www.youtube.com/embed/qkRXPFUwKVE" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                  </br>
+                    <h3 class="column-title">OK:TV Mainz</h3>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe src="https://www.youtube.com/embed/4kWVPiEZetc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                  </br>
+                    <h3 class="column-title">Moderne Landwirtschaft</h3>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe src="https://www.youtube.com/embed/uh8Vl4VzIIE" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="col-sm-6 wow fadeInRight">
+                    <h3 class="column-title">Warum regional & saisonal</h3>
+
+                    <p>Die Vorteile und Nachteile von regionalem und saisonalem Kochen sind vielfältig und in verschiedensten Formen wahrnehmbar. Ein Vorteil des saisonalen Kochens ist beispielsweise von ökonomischer Natur und betrifft den Konsumenten. Da Erzeugnisse zu ihrer Saisonzeit in großen Mengen vorkommen, fällt in vielen Fällen der Preis, sodass Obst und Gemüse aus der Saison günstig zu erwerben sind. Nachteile bestehen aus ökonomischer Sicht für größere Produzenten. Sie können sich nicht auf ein bestimmtes Produkt konzentrieren, welches das ganze Jahr über produziert und verkauft wird, sondern müssen viele verschiedene Obst- und Gemüsesorten anbauen, um das ganze Jahr über Erträge einzufahren.</p>
+
+                    <p>Dieser Nachteil ist wiederum mit einem großen ökologischen Vorteil verbunden, denn die Produktion von Obst oder Gemüse außerhalb der natürlichen Wachstumszeiten ist mit viel Aufwand verbunden. So wird Energie bei der Produktion verbraucht, um beispielsweise künstlich passendes Klima zu schaffen. Außerdem wird die Umwelt durch den Transport von Lebensmitteln zwecks dauerhafter Verfügbarkeit im ganzen Jahr belastet.</p>
+
+                    <p>Zusätzlicher Vorteil von regionalen und saisonalen Produkten ist, dass das Obst oder Gemüse einfach eine bessere Qualität hat und besser schmeckt. Unter natürlichen Bedingungen und frei von Belastung durch Transport oder Pestizide, können Früchte ihren maximalen Geschmack entfalten und den höchsten Vitamingehalt erreichen, was sie gleichzeitig gesünder macht.</p>
+
+                    <p>Betrachtet man Abwechslung und Vielfalt von Produkten, so hat saisonales und regionales Kochen sowohl Vor- als auch Nachteile. Über das Jahr verteilt werden viele verschiedene Sorten von Obst oder Gemüse auf den Teller kommen, sofern man sich auf saisonale Produkte beschränkt. Kurzfristig wiederum ist die Auswahl natürlich eingeschränkt, da immer nur bestimmte Früchte verfügbar sind. Diesem Nachteil kann allerdings in einem gewissen Maße entgegengesteuert werden, wenn man kreativ wird. So können beispielsweise Produkte wie Marmelade eingekocht werden, wenn das entsprechende Obst Saison hat und dann das ganze Jahr über genossen werden.</p>
+
+                    <p>Der letzte Vorteil von regionalem Kochen ist sozialer Natur. Werden die Produkte aus der Region genutzt, so fördert dies Kleinbauern im engeren Umfeld und wirkt dem Aussterben solcher Kleinunternehmer entgegen. Insgesamt muss sich jeder sein eigenes Urteil über die Verwendung von regionalen und saisonalen Produkten bilden. Aus unserer Sicht ergeben sich jedoch deutlich mehr Vorteile. In diesem Sinne unser Rat: Einfach ausprobieren und den Geschmack von regionalem und saisonalem Obst und Gemüse selbst erleben.</p>
+
+                </div>
+            </div>
+        </div>
+    </section><!--/#about-->
+
+    <!--Die Jahreszeiten Bilder mit Filtern werden hier eingeführt -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Jahreszeiten Übersicht</h2>
+                <p class="text-center wow fadeInDown"> Hier seht ihr die Früchte und in welchen Jahreszeiten ihre Reifezeit liegt.<br>Also klickt euch mal durch :-)</p>
+            </div>
+
+            <div class="text-center">
+                <ul class="portfolio-filter">
+                    <li><a class="active" href="#" data-filter="*">Alle Früchte</a></li>
+                    <li><a href="#" data-filter=".filter_frühling">Frühling</a></li>
+                    <li><a href="#" data-filter=".filter_sommer">Sommer</a></li>
+                    <li><a href="#" data-filter=".filter_herbst">Herbst</a></li>
+                    <li><a href="#" data-filter=".filter_winter">Winter</a></li>
+                </ul><!--/#portfolio-filter-->
+            </div>
+
+            <div class="portfolio-items">
+                <div class="portfolio-item filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=esskastanie" ><img class="img-responsive" src="images/jahreszeit/esskastanie.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=esskastanie" ><h3>Die Esskastanie</h3></a>
+                            <div class="jahreszeiten_info">Einfach köstlich und auf jedem Weihnachtsmarkt ein Muss.</div>
+                            <a class="preview" href="images/jahreszeit/esskastanie.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_sommer">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=sauerkirsche"><img class="img-responsive" src="images/jahreszeit/sauerkirsche.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=sauerkirsche"><h3>Die Sauerkirsche</h3></a>
+                            <div class="jahreszeiten_info">Süß, sauer und einfach toll in Nachspeisen.</div>
+                            <a class="preview" href="images/jahreszeit/sauerkirsche.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_sommer">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=suesskirsche"><img class="img-responsive" src="images/jahreszeit/suesskirsche.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=suesskirsche"><h3>Die Süßkirsche</h3></a>
+                            <div class="jahreszeiten_info">Ob im Kuchen, Joghurt oder im Erfrischungsgetränk, die Süßkirsche passt immer.</div>
+                            <a class="preview" href="images/jahreszeit/suesskirsche.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_sommer">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=klarapfel" ><img class="img-responsive" src="images/jahreszeit/klarapfel.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=klarapfel" ><h3>Der Klarapfel</h3></a>
+                            <div class="jahreszeiten_info">Auch Augustapfel genannt. Er ist bereits sehr früh reif, süß und leicht mehlig.</div>
+                            <a class="preview" href="images/jahreszeit/klarapfel.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=goldenapfel" ><img class="img-responsive" src="images/jahreszeit/goldenapfel.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=goldenapfel" ><h3>Der Golden Delicous</h3></a>
+                            <div class="jahreszeiten_info">Einer der verbreitetsten Äpfel. Überzeugt durch seien intensiven Geschmack.</div>
+                            <a class="preview" href="images/jahreszeit/goldenapfel.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_sommer filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=birne" ><img class="img-responsive" src="images/jahreszeit/birne.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=birne" ><h3>Die Birne</h3></a>
+                            <div class="jahreszeiten_info">Wer kennt und liebt sie nicht. Universell, wunderbar, lecker!</div>
+                            <a class="preview" href="images/jahreszeit/birne.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_sommer">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=rotejohannisbeere" ><img class="img-responsive" src="images/jahreszeit/rote_johannisbeere.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=rotejohannisbeere" ><h3>Die rote Johannissbeere</h3></a>
+                            <div class="jahreszeiten_info">Super geeignet für Marmeladen und als Verzierung auf Torten.</div>
+                            <a class="preview" href="images/jahreszeit/rote_johannisbeere.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=mandel" ><img class="img-responsive" src="images/jahreszeit/mandel.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=mandel" ><h3>Die Mandel</h3></a>
+                            <div class="jahreszeiten_info">Schon mal selbst welche gesammelt? Versucht es doch einfach mal. :-)</div>
+                            <a class="preview" href="images/jahreszeit/mandel.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=walnuss" ><img class="img-responsive" src="images/jahreszeit/walnuss.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=walnuss" ><h3>Die Walnuss</h3></a>
+                            <div class="jahreszeiten_info">Die Walnuss ist ein schöner Snack und gehört mittlerweile einfach zu Weihnachten. Also warum nicht selbst gesammelte Walnüsse zu Weihnachten verschenken?</div>
+                            <a class="preview" href="images/jahreszeit/walnuss.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=holunderbeere" ><img class="img-responsive" src="images/jahreszeit/holunderbeere.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=holunderbeere" ><h3>Die Holunderbeere</h3></a>
+                            <div class="jahreszeiten_info">Wie die Blüte so die Beere. Klein und fein.</div>
+                            <a class="preview" href="images/jahreszeit/holunderbeere.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_sommer filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=brombeere" ><img class="img-responsive" src="images/jahreszeit/brombeere.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=brombeere" ><h3>Die Brommbeere</h3></a>
+                            <div class="jahreszeiten_info">Brombeeren schmecken nicht nur gut, sondern bieten durch ihre dunkle Farbe einen tollen Kontrast in vielen Gerichten.</div>
+                            <a class="preview" href="images/jahreszeit/brombeere.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=kornelkirsche" ><img class="img-responsive" src="images/jahreszeit/kornelkirsche.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=kornelkirsche" ><h3>Die Kornelkirsche</h3></a>
+                            <div class="jahreszeiten_info">Ist die wirklich essbar? Ja das ist sie. Eine sehr safthaltige und geschmackstarke Frucht.</div>
+                            <a class="preview" href="images/jahreszeit/kornelkirsche.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_sommer filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=mirabelle" ><img class="img-responsive" src="images/jahreszeit/mirabelle.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=mirabelle" ><h3>Die Mirabelle</h3></a>
+                            <div class="jahreszeiten_info">Gelb, klein und aromatisch. Harmoniert wunderbar mit Vanille.</div>
+                            <a class="preview" href="images/jahreszeit/mirabelle.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_sommer filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=haselnuss" ><img class="img-responsive" src="images/jahreszeit/haselnuss.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=haselnuss" ><h3>Die Haselnuss</h3></a>
+                            <div class="jahreszeiten_info">Der beste Freund des Eichhörnchens. Sie schmeckt nicht nur in Nutella. Wie wäre es mit einem frischen Haselnussjoghurt?</div>
+                            <a class="preview" href="images/jahreszeit/haselnuss.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_sommer">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=felsenbirne" ><img class="img-responsive" src="images/jahreszeit/felsenbirne.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=felsenbirne" ><h3>Die Felsenbirne</h3></a>
+                            <div class="jahreszeiten_info">Eine wahre Delikatesse mit einem Geschmack von Kirsche, Bittermandel und Marzipan in einer Frucht vereint.</div>
+                            <a class="preview" href="images/jahreszeit/felsenbirne.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=weissdorn" ><img class="img-responsive" src="images/jahreszeit/weissdorn.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=weissdorn" ><h3>Der Weißdorn</h3></a>
+                            <div class="jahreszeiten_info">Mehlige, leicht süßliche Frucht mit vielen Vitaminen.</div>
+                            <a class="preview" href="images/jahreszeit/weissdorn.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_sommer filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=pflaume" ><img class="img-responsive" src="images/jahreszeit/pflaume.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=pflaume" ><h3>Die Pflaume</h3></a>
+                            <div class="jahreszeiten_info">Tolle Steinfrüchte mit einem süßen bis leicht herben Geschmack und sehr weichem Fruchtfleisch.</div>
+                            <a class="preview" href="images/jahreszeit/pflaume.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_sommer filter_herbst">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=hagebutte" ><img class="img-responsive" src="images/jahreszeit/hagebutte.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=hagebutte" ><h3>Die Hagebutte</h3></a>
+                            <div class="jahreszeiten_info">Als Rose wunderschön und wohlduftend, als Frucht vitaminreich und gut bekömmlich.</div>
+                            <a class="preview" href="images/jahreszeit/hagebutte.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+                <div class="portfolio-item filter_frühling">
+                    <div class="portfolio-item-inner">
+                        <a href="info.html?f=baerlauch" ><img class="img-responsive" src="images/jahreszeit/baerlauch.jpg" alt=""></a>
+                        <div class="portfolio-info">
+                            <a href="info.html?f=baerlauch" ><h3>Der Bärlauch</h3></a>
+                            <div class="jahreszeiten_info">Wundervolles Kraut mit einner genialen Knoblauchnote.</div>
+                            <a class="preview" href="images/jahreszeit/baerlauch.jpg" rel="prettyPhoto"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div><!--/.portfolio-item-->
+
+            </div>
+        </div><!--/.container-->
+    </section><!--/#portfolio-->
+
+    <!-- Hier ist Daily cooking-->
+    <section id="work-process">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Daily Cooking</h2>
+                <p class="text-center wow fadeInDown">Versucht doch mal eines unserer Daily Cooking Rezepte. Sie sind für jeden Tag ausgewogen, gesund und lecker!</p>
+            </div>
+
+            <div class="row text-center">
+                <div class="einrucken col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <div class="icon-circle">
+                            <span><a href="rezepte.html?t=montag">1</a></span>
+                            <a href="rezepte.html?t=montag"><i class="fa fa-spoon fa-2x"></i></a>
+                        </div>
+                        <h3 class="shadow2"><a href="rezepte.html?t=montag">Montag</a><h3>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div class="icon-circle">
+                            <span><a href="rezepte.html?t=dienstag">2</a></span>
+                            <a href="rezepte.html?t=dienstag"><i class="fa fa-snowflake-o fa-2x"></i></a>
+                        </div>
+                        <h3 class="shadow2"><a href="rezepte.html?t=dienstag">Dienstag</a></h3>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="200ms">
+                        <div class="icon-circle">
+                            <span><a href="rezepte.html?t=mittwoch">3</a></span>
+                            <a href="rezepte.html?t=mittwoch"><i class="fa fa-coffee fa-2x"></i></a>
+                        </div>
+                        <h3 class="shadow2"><a href="rezepte.html?t=mittwoch">Mittwoch</a></h3>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+                        <div class="icon-circle">
+                            <span><a href="rezepte.html?t=donnerstag">4</a></span>
+                            <a href="rezepte.html?t=donnerstag"><i class="fa fa-leaf fa-2x"></i></a>
+                        </div>
+                        <h3 class="shadow2"><a href="rezepte.html?t=donnerstag">Donnerstag</a></h3>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+                        <div class="icon-circle">
+                            <span><a href="rezepte.html?t=freitag">5</a></span>
+                            <a href="rezepte.html?t=freitag"><i class="fa fa-cutlery fa-2x"></i></a>
+                        </div>
+                        <h3 class="shadow2"><a href="rezepte.html?t=freitag">Freitag</a></h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-md-5 col-xs-12 versteckt"></div>
+                <div class="col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">
+                        <div class="icon-circle">
+                            <span><a href="rezepte.html?t=samstag">6</a></span>
+                            <a href="rezepte.html?t=samstag"><i class="fa fa-glass fa-2x"></i></a>
+                        </div>
+                        <h3 class="shadow2"><a href="rezepte.html?t=samstag">Samstag</a></h3>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-4 col-xs-6">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="500ms">
+                        <div class="icon-circle">
+                            <span><a href="rezepte.html?t=sonntag">7</a></span>
+                            <a href="rezepte.html?t=sonntag"><i class="fa fa-lemon-o fa-2x"></i></a>
+                        </div>
+                        <h3 class="shadow2"><a href="rezepte.html?t=sonntag">Sonntag</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#work-process-->
+
+    <br>
+    <!-- Das Wetter -->
+    <section id="wetter">
+            <div class="container" class="wow fadeIn">
+                    <div class="section-header">
+                        <h2 class="section-title text-center wow fadeInDown">Wetter</h2>
+                    </div>
+
+                    <div class="row">
+                        <div id="wetter_div">
+                    <li class="weatherlist">
+                        <ul class="weatherbox">
+                        <div id="weather1">
+                            <p><b>Heute</b></p>
+                            <div id="icon"><img id="wicon1" src="" alt="Weather icon"></div>
+                            <div id="description1"></div>
+                            <h1 id="temp1"></h1>
+                            <div id="location1"></div>
+                            <div id="datum1"></div>
+                        </div>
+                        </ul>
+
+                        <ul class="weatherbox">
+                        <div id="weather2">
+                            <p><b>Morgen</b></p>
+                            <div id="icon"><img id="wicon2" src="" alt="Weather icon"></div>
+                            <div id="description2"></div>
+                            <h1 id="temp2"></h1>
+                            <div id="location2"></div>
+                            <div id="datum2"></div>
+                        </div>
+                        </ul>
+
+                        <ul class="weatherbox">
+                        <div id="weather3">
+                            <p><b>Übermorgen</b></p>
+                            <div id="icon"><img id="wicon3" src="" alt="Weather icon"></div>
+                            <div id="description3"></div>
+                            <h1 id="temp3"></h1>
+                            <div id="location3"></div>
+                            <div id="datum3"></div>
+                        </div>
+                        </ul>
+                    </li>
+                </div>
+                </div>
+            </div>
+    </section>
+    <!-- #wetter-->
+    <br>
+
+    <!-- Hier wird die Karte geladen-->
+    <section id="map" class="wow fadeIn">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Karte</h2>
+            </div>
+            <div class="container fruitmap">
+                    <div class="row">
+                            <p class="text-center wow fadeInDown">Hier findet ihr die Standorte der verschiedenen Früchte in Düsseldorf. Wenn euch die Karte zu klein ist, öffnet sie in einem neuen Tab :-)  <a href="map.html" target="_blank"> Karte öffnen</a></p>
+                            <object id="fruitmap" data="map.html" style="height: 320px">
+                                <p>Your browser doesn’t support displaying the map via object tags.</p>
+                            </object>
+                    </div>
+                </div>
+    </section><!--/#map-->
+    <br>
+
+    <!-- Die Info Sektion -->
+    <section id="info" class="wow fadeIn">
+            <br><br><br><br>
+        <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown shadow3">Infos</h2>
+                <p class="text-center wow fadeInDown shadow">Du möchtest nähere Informationen über die einzelnen Früchte haben? Dann schau dir unsere Informationsseite an. Dort siehst du tolle Informationen, Grafiken und Tabellen zu den einzelnen Früchten. Erfahre näheres über den Vitamingehalt, die Auswirkung auf den Körper und vieles mehr.</p>
+            </div>
+            <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <a class="btn btn-primary btn-lg" href="info.html?f=start">Zur Infoseite!</a>
+                    </div>
+                </div>
+    </section><!--/#infos-->
+
+    <!--Hier werden die Mitglieder des Teams aufgelistet-->
+    <section id="meet-team">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">DAS TEAM</h2>
+                <p class="text-center wow fadeInDown">Wir sind die Köpfe, die hinter der Idee <i>Saisonales Regionales Kochen</i> stehen. Wir sind alle vier Master-Studenten der Heinrich-Heine-Universität. Unterstützt und begleitet wurden wir von unserer Dozentin Dr. Agnes Mainka, die für dieses Projekt verantwortlich ist.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <div class="team-img">
+                            <img class="img-responsive img-circle" src="images/team/01.jpg" alt="">
+                        </div>
+                        <div class="team-info">
+                            <h3>Thomas K.</h3>
+                            <span>Der Kern</span>
+                        </div>
+                        <p>Als keimender Kern ist Thomas die Schlüsselperson für die Idee und die Umsetzung des Projektes. Er hat die Idee für Saisonales Regionales Kochen geliefert und ist mit vollem Einsatz dabei, die Seite so optimal wie möglich zu gestalten.</p>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div class="team-img">
+                            <img class="img-responsive img-circle" src="images/team/02.jpg" alt="">
+                        </div>
+                        <div class="team-info">
+                            <h3>Alexandra S.</h3>
+                            <span>Die Statistik Beere</span>
+                        </div>
+                        <p>Alexandra hat sich als die Expertin für Daten und Nährwerte entpuppt. Sie hat sich dafür eingesetzt, den Nutzern alle relevanten Informationen so übersichtlich und verständlich wie möglich zu präsentieren.</p>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="200ms">
+                        <div class="team-img">
+                            <img class="img-responsive img-circle" src="images/team/03.jpg" alt="">
+                        </div>
+                        <div class="team-info">
+                            <h3>Daniel R.</h3>
+                            <span>Die Informations Frucht</span>
+                        </div>
+                        <p>Daniel hat sich mit den Informationstexten zu den jeweiligen Früchten und Themen auseinandergeesetzt. Dabei hat er eng mit Alexandra zusammen gearbeitet, da beide die Weitergabe von Wissen als Zielsetzung hatten .</p>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+                        <div class="team-img">
+                            <img class="img-responsive img-circle" src="images/team/04.jpg" alt="">
+                        </div>
+                        <div class="team-info">
+                            <h3>Daniel K.</h3>
+                            <span>Die saure Karte</span>
+                        </div>
+                        <p>Daniel ist verantwortlich für die Karte und die Visualisierung der Pflanzenstände. Mit offenen Daten die Welt darstellen, das ist seine Berufung. Dabei ist Ihm stehts wichtig, das Optimum aus den Daten zu ziehen.</p>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <br><br>
+                <div id="meet-team2" class="col-sm-4 col-md-6">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+                        <div class="team-img2">
+                            <img class="img-responsive img-circle" src="images/team/05.jpg" alt="">
+                        </div>
+                        <div class="team-info">
+                            <h3>Dr. Agnes Mainka</h3>
+                            <span>Die Verantwortliche Kirsche</span>
+                        </div>
+                        <div class="block-text">
+                        <p>Dr. Agnes Mainka ist als Verantwortliche des Projektes immer für Fragen da. Als Vertreterin der Open Data Bewegung, hat Sie uns den Geist eben dieser näher gebracht. Dabei geht es vornehmlich darum, mit offenen Daten zu arbeiten und seine eigenen Daten auch offen für andere anzubieten.</p>
+                        </div>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                        <div class="social-icons"><br></div>
+                    </div>
+                </div>
+            </div>
+    </section><!--/#meet-team-->
+
+<!--Hier werden die Daten verlinkt-->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Daten</h2>
+                <p class="text-center wow fadeInDown">  Hier findet Ihr die Daten, die wir im Projekt benutzt haben. Und nicht nur die Daten!</p>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <ul class="pricing">
+                            <li class="plan-header">
+                                <div class="price-duration">
+                                    <span class="price">
+                                        Open Data
+                                    </span>
+                                </div>
+                                <div class="plan-name">
+                                    Jahresübersicht der Früchte
+                                </div>
+                            </li>
+                            <li>Das Projekt basiert zum großen Teil auf den Daten, die wir auf dem <strong>Open Data Düsseldorf Portal</strong> gefunden haben.</li>
+							<li class="plan-purchase"><a class="btn btn-primary" href="https://opendata.duesseldorf.de/dataset/der-ph%C3%A4nologische-garten-von-d%C3%BCsseldorf" target="_blank">Zum Portal</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="200ms">
+                        <ul class="pricing">
+                            <li class="plan-header">
+                                <div class="price-duration">
+                                    <span class="price">
+                                        Open Data
+                                    </span>
+                                </div>
+                                <div class="plan-name">
+                                    Standorte der Früchte
+                                </div>
+                            </li>
+                            <li>Wir bedandeken uns bei dem <strong>Open Data Düsseldorf Team</strong> für die Kooperation und die Daten mit den Standorten der Pflanzen.</li>
+                            <li class="plan-purchase"><a class="btn btn-primary" href="https://opendata.duesseldorf.de/daten/anfragen" target="_blank">Zum Portal</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="400ms">
+                        <ul class="pricing">
+                            <li class="plan-header">
+                                <div class="price-duration">
+                                    <span class="price">
+                                        Open Code
+                                    </span>
+                                </div>
+                                <div class="plan-name">
+                                    Code des Projektes
+                                </div>
+                            </li>
+                            <li>Unser Code ist <strong>offen</strong> und Ihr könnt ihn gerne unter den Bedingungen der offenen Lizenz CC BY-NC-SA weiternutzen</li>
+                            <li class="plan-purchase"><a class="btn btn-primary" href="https://github.com/d-anshi/mi2-projekt" target="_blank">Zum GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="600ms">
+                        <ul class="pricing">
+                            <li class="plan-header">
+                                <div class="price-duration">
+                                    <span class="price">
+                                        Food2 Fork
+                                    </span>
+                                </div>
+                                <div class="plan-name">
+                                    API für Rezepte von FOOD2FORK
+                                </div>
+                            </li>
+                            <li>Die Rezepte, die Ihr auf unserer Webseite finden könnt, werden mithilfe der API des <strong>FOOD2FORK</strong> Projektes zusammengestellt.</li>
+
+                            <li class="plan-purchase"><a class="btn btn-primary" href="https://www.food2fork.com/about/api" target="_blank">Zu Food2Fork</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#pricing-->
+
+
+    <section id="get-in-touch">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown shadow3">Impressum</h2>
+                <p class="text-center wow fadeInDown shadow3">Ihr konnt uns natürlich immer gerne kontaktieren. Wir sind stets für Kooperationen und Verbesserungsvorschläge offen.</p>
+            </div>
+        </div>
+    </section><!--/#get-in-touch-->
+
+
+    <section id="contact">
+        <iframe class="impress_media" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=6.786224842071534%2C51.18571854339414%2C6.802661418914796%2C51.19338419323042&amp;layer=mapnik"></iframe>
+        <div class="container-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-8">
+                        <div class="contact-form">
+                            <h3>Kontaktinformation</h3>
+
+                            <address>
+                              <strong>SR Kochen by <br>Heinrich Heine Universität</strong><br>
+                              Universitätsstraße 1<br>
+                              40225, Düsseldorf<br>
+                              Telefon: Please Tel<br>
+                              Email: Please Email
+                            </address>
+
+                            </form>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#bottom-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2019 SR Kochen.
+                </div>
+                <div class="col-sm-6">
+                    <ul class="social-icons">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-flickr"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+
+    <script src="js/response_get.js"></script>
+    <script>
+	//Hier wird das Wetter abgerufen
+    wetter_ddorf();
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/mousescroll.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

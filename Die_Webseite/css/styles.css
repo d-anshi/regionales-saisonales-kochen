@@ -1,0 +1,43 @@
+/*
+Template Name: HR2 - Template
+Version: 1.0
+Author: HostingRed SAS
+Author URL: http://hostingred.com
+*/
+/*******************************************
+USE THIS FILE TO INCLUDE YOUR OWN CSS STYLES
+********************************************/
+
+.shadow2 {
+    text-shadow: none !important;
+    background-color: white;
+    border-radius: 20px;
+    border-color: green;
+    border-width: 4px;
+    border: 3px solid #A3EBB1;
+    padding: 6px;
+}
+
+#work-process .icon-circle {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border: 3px solid #A3EBB1;
+    box-shadow: none;
+    border-radius: 100px;
+    position: relative;
+    padding-top: 8px;
+    text-shadow: none;
+    background-color: white;
+}
+
+.carousel-content {
+    padding-left: 20px !important;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+#main-slider .slider-inner h2 {
+    padding-top: 20px;
+}

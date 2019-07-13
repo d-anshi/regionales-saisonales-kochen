@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Rezepte: Sesonal und Regional</title>
+	<!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.transitions.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <style>
+    .fancyboxIframe{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    };
+    .fancyboxIframe2{
+        text-align: center;
+    };
+
+        li {
+        display: block;
+        transition-duration: 0.5s;
+        }
+
+        li:hover {
+        cursor: pointer;
+        }
+
+        ul li ul {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        transition: all 0.5s ease;
+        margin-top: 1rem;
+        left: 0;
+        display: none;
+        }
+
+        ul li:hover > ul,
+        ul li ul:hover {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+        }
+
+        ul li ul li {
+        clear: both;
+        width: 130%;
+        }
+
+    </style>
+    <script lang="javascript">
+    /////get rezept_suchbegriff
+    var rezept = getQueryVariable("r");
+    var tag = getQueryVariable("t");
+        function getQueryVariable(variable){
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i=0;i<vars.length;i++)
+            {
+                var pair = vars[i].split("=");
+                if(pair[0] == variable)
+                {
+                    return pair[1];
+                    }
+                }
+        }
+        console.log(rezept);
+
+    // To Upper case
+    function jsUcfirst(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+    //activ setzen der navigations bar
+    function set_active(){
+        $('li').click(function(e) {
+                e.preventDefault();
+                $('li').removeClass('active');
+                $(this).addClass('active');
+            });
+    }
+
+    //intitialisierung der Seite
+    function init_seite(){
+        if(rezept != undefined){
+            document.getElementById('rgfuellt').className = "scoll active";
+            document.getElementById('tgfuellt').className = "scoll";
+        }
+        if(tag != undefined){
+            document.getElementById('tgfuellt').className = "scoll active";
+            document.getElementById('rgfuellt').className = "scoll";
+        }
+    }
+
+    function linken(){location.href = "rezepte.html"; set_active();}
+
+    function home(par){location.href = "index.html"+par}
+
+    // Die Rezepte für Daily Cooking werden hier geladen
+    function daily(tag){
+        var doc_1 = '';
+        if(tag == 'montag'){
+            doc_1 ='<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/rezepte/montag.jpg" alt=""></div> \
+                    <div class="text-center wow fadeInDown"><h3><a href ="rezepte.html?t=montag">Kürbissuppe</a></h3>\
+                    <div class="zutaten"><i>Zutaten:<br>1kg Kürbis<br>2 Zwiebeln<br>2EL Butter<br>2EL Mehl<br>800ml Gemüsebrühe<br>200g Schlagsahne<br>Gewürze: Salz, Pfeffer, Muskatnuss nach Geschmack<br></i><br>\
+                    <div class="auflisten"><b>1.</b> Zwiebeln & Kürbis schälen und entkernen.<br><b>2.</b> Zwiebeln in der Butter glasig dünsten, danach den Kürbis und Mehl hinzugeben und weiter anschwitzen.<br><b>3.</b> Anschließend die Brühe, die Sahne sowie die Gewürze hinzugeben und 25 Min. köcheln lassen.<br><b>4.</b> Jetzt die Kürbissuppe pürieren und evt. nochmal abschmecken. Dazu ein Topping oder frisches Brot vom Bäcker.</div><br>Wir wünschen guten Appetit!</div></div>';
+        }
+
+        if(tag == 'dienstag'){
+            doc_1 ='<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/rezepte/dienstag.jpg" alt=""></div> \
+                    <div class="text-center wow fadeInDown"><h3><a href ="rezepte.html?t=dienstag">Sorbet</a></h3>\
+                    <div class="zutaten"><i>Zutaten:<br>550g reife Früchte (z.B. Aprikosen)<br>100g Zucker<br>4EL Zitronensaft<br>2EL Schnaps oder Likör (passend zur verwendeten Frucht)<br>50g Invertzucker<br></i><br>\
+                    <div class="auflisten"><b>1.</b> Früchte schälen und entkernen.<br><b>2.</b> Anschließend die Früchte mit Zucker und Zitronensaft in einem Topf 5 Min. aufkochen.<br><b>3.</b> Die Früchte pürieren und für eine Std. in den Kühlschrank stellen.<br><b>4.</b> Jetzt die Masse mit Invertzucker und Schnaps/Likör mischen und für 50 Min. in der Eismaschine cremig erhärten lassen.</div><br>Wir wünschen guten Appetit!</div></div>';
+        }
+
+        if(tag == 'mittwoch'){
+            doc_1 ='<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/rezepte/mittwoch.jpg" alt=""></div> \
+                    <div class="text-center wow fadeInDown"><h3><a href ="rezepte.html?t=mittwoch">Nussecken</a></h3>\
+                    <div class="zutaten"><i>Zutaten:<br>Für den Teig:<br>225g Mehl<br>1TL Backpulver<br>100g Zucker<br>1 Pck. Vanillezucker<br>1 Ei<br>2EL Wasser<br>100g Butter<br>Für den Belag:<br>150g Butter<br>150g Zucker<br>2 Pck. Vanillezucker<br>3EL Wasser<br>100g Haselnüsse gemahlen<br>200g Hasselnüsse gehobelt<br>3EL Konfitüre<br>100g Zartbitterschokolade<br></i><br>\
+                    <div class="auflisten"><b>1.</b> Alle Zutaten für den Teig in einer Schüssel mit einem Handmixer verrühren.<br><b>2.</b> Die Masse zu einer Rolle formen und für 30 Min. in den Kühlschrank legen.<br><b>3.</b> Für den Belag Butter mit Zucker, Vanillezucker und Wasser in einem Topf schmelzen. Gemahlene und gehobelte Hasselnüsse unterrühren und die Masse anschließend etwa 10 Min. ruhen lassen.<br><b>4.</b> Den Teig ausrollen, mit Konfitüre bestreichen und die Haselnussmasse darauf verteilen. Die Nussecken brauchen ca. 25 Min. bei 180°C im Backofen.<br><b>5.</b> Nach dem Backen die Nussecken erkalten lassen und mit Zartbitterschokolade verzieren. Die fertigen Nussecken können mit einem frischen Tee oder Kaffee serviert werden.</div><br>Wir wünschen guten Appetit!</div></div>';
+        }
+
+        if(tag == 'donnerstag'){
+            doc_1 ='<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/rezepte/donnerstag.jpg" alt=""></div> \
+                    <div class="text-center wow fadeInDown"><h3><a href ="rezepte.html?t=donnerstag">Saisonaler Salat</a></h3>\
+                    <div class="zutaten"><i>Zutaten:<br>2 Tomaten<br>1 Gurke<br>300g Feld- oder Kopfsalat<br>1 Karotte<br>100g Endivie<br>2 Stangen Fühlingszwiebel<br>Dressing:<br>200ml Joghurt<br>20g Petersilie<br>20g Dill<br>Gewürze: Salz, Pfeffer<br></i><br>\
+                    <div class="auflisten"><b>1.</b> Alle Zutaten waschen, schälen (falls nötig) und zuschneiden.<br><b>2.</b> Die Zutaten in eine Schüssel geben und leicht vermischen.<br><b>3.</b> Den Dill und die Petersilie fein hacken und mit dem Joghurt und den Gewürzen zu einem Dressing anrühren.<br><b>4.</b> Das Dressing über den Salat kippen und sofort servieren. Weitere Toppings sind natürlich immer möglich.</div><br>Wir wünschen guten Appetit!</div></div>';
+        }
+
+        if(tag == 'freitag'){
+            doc_1 ='<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/rezepte/freitag.jpg" alt=""></div> \
+                    <div class="text-center wow fadeInDown"><h3><a href ="rezepte.html?t=freitag">Bratfisch</a></h3>\
+                    <div class="zutaten"><i>Zutaten:<br>2 Fisch-Filets (zb. Zander)<br>50g Mehl<br>1 Ei (optinoal)<br>300g junge Kartoffeln<br>100ml Öl<br>Gewürze: Salz, Pfeffer, Rosmarin<br></i><br>\
+                    <div class="auflisten"><b>1.</b> Das Mehl würzen und die Filets mit diesem bedecken. Falls gewünscht, die Filets voher in Ei tauchen<br><b>2.</b> Die Kartoffeln mit Öl, Rosmarin und Salz bestreuen und bei 200°C ca. 20 Min. backen.<br><b>3.</b> Den Fisch in eine heiße Pfanne mit Öl geben und goldbraun braten.<br><b>4.</b> Den Fisch mit den Kartoffeln anrichten. Dazu passen Zitronen und ein leckerer Kräuterquark.</div><br>Wir wünschen guten Appetit!</div></div>';
+        }
+
+        if(tag == 'samstag'){
+            doc_1 ='<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/rezepte/samstag.jpg" alt=""></div> \
+                    <div class="text-center wow fadeInDown"><h3><a href ="rezepte.html?t=samstag">Himbeer Cocktail</a></h3>\
+                    <div class="zutaten"><i>Zutaten:<br>7 Himbeeren<br>6cl Gin<br>3cl Zuckersirup<br>30ml Limetten-Saft<br>Eiswürzel<br></i><br>\
+                    <div class="auflisten"><b>1.</b> Die Himbeeren zerkleinern und die Limetten auspressen.<br><b>2.</b> Die Zutaten mischen, in Gläser füllen und mit Eiswürfeln auffüllen.<br><b>3.</b> Das Ganze mit frischen Himbeeren, Minze und Limettenscheiben verzieren.</div><br>Wir wünschen guten Appetit!</div></div>';
+        }
+
+        if(tag == 'sonntag'){
+            doc_1 ='<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/rezepte/sonntag.jpg" alt=""></div> \
+                    <div class="text-center wow fadeInDown"><h3><a href ="rezepte.html?t=sonntag">Zitronenhähnchen</a></h3>\
+                    <div class="zutaten"><i>Zutaten:<br>400g Hähnchenbrust<br>5EL Zitronensaft<br>100ml Weißwein<br>3EL Butter<br>100ml Gemüsebrühe<br>1EL Zucker<br>2 Schalotten<br>Gewürze: Salz, Pfeffer, Zitronengras, Basilikum, evt. Chili<br></i><br>\
+                    <div class="auflisten"><b>1.</b> Zwiebeln schälen und Zitronen pressen.<br><b>2.</b> Zwiebeln in der Butter glasig dünsten. Danach mit Brühe, Zitronensaft und Wein aufgießen und mit Gewürzen und Zucker abschmecken.<br><b>3.</b> Anschließend das Hähnchen in die Soße legen und 15 Min. köcheln lassen.<br><b>4.</b> Das Hähnchen mit der Soße anrichten und frischen Basilikum darüber verteilen. Dazu frisches Brot vom Bäcker oder selbstgemachte Bratkartoffeln.</div><br>Wir wünschen guten Appetit!</div></div>';
+        }
+
+        document.getElementById("rezept").innerHTML = doc_1;
+        document.getElementById("inhalt2").innerHTML = jsUcfirst(tag);
+    }
+
+    //js Funktion wird abgerufen um den Übersetzer zu verwenden
+    function rezept_bekommen(){
+        trans(rezept);
+    };
+
+    //suchfunktion
+    function such_es(){
+        var zutat = document.getElementById("zutaten").value;
+        console.log(zutat);
+        if (zutat == ""){return};
+        zutat = zutat.toLowerCase();
+        location.href = "rezepte.html?r="+zutat;
+    };
+
+    </script>
+</head><!--/head-->
+<body>
+        <header id="header">
+                <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                        </div>
+
+                        <!--Navigationsbar -->
+                        <div class="collapse navbar-collapse navbar-right">
+                            <ul class="nav navbar-nav">
+                                <li class="scroll" onclick = "home('#');"><a href="mi2b.inf-d.de/index.html">Home</a></li>
+                                <li id="rgfuellt" class="scroll active"  onclick = "linken();"><a href="rezepte.html">Suchen</a></li>
+                                <li  id="tgfuellt" class="scroll"><a href="#">Daily Cooking</a>
+                                    <ul class="dropdown">
+                                                <li onclick = "daily('montag');">Montag</li>
+                                                <li onclick = "daily('dienstag');">Dienstag</li>
+                                                <li onclick = "daily('mittwoch');">Mittwoch</li>
+                                                <li onclick = "daily('donnerstag');">Donnerstag</li>
+                                                <li onclick = "daily('freitag');">Freitag</li>
+                                                <li onclick = "daily('samstag');">Samstag</li>
+                                                <li onclick = "daily('sonntag');">Sonntag</li>
+                                            </ul></li>
+                                <li class="scroll" onclick = "home('#get-in-touch');"><a href="mi2b.inf-d.de/index.html#get-in-touch">Kontakt</a></li>
+                            </ul>
+                        </div>
+                    </div><!--/.container-->
+                </nav><!--/nav-->
+            </header><!--/header-->
+
+
+            <!-- Hier geschieht die ganze Magie. Alle Texte von JS werden hier ausgegeben.-->
+            <div class="container">
+                    <div class="section-header">
+                        <br>
+                        <h2 class="section-title text-center wow fadeInDown" id="inhalt2">Rezept</h2>
+                        <p class="text-center wow fadeInDown" id="rezept"></p>
+
+
+                    </div>
+            </div>
+
+</body>
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                &copy; 2019 SR Kochen.
+            </div>
+            <div class="col-sm-6">
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="#"><i class="fa fa-flickr"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer><!--/#footer-->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!--<script src="http://maps.google.com/maps/api/js?sensor=true"></script>-->
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/mousescroll.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/jquery.isotope.min.js"></script>
+<script src="js/jquery.inview.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/response_get.js"></script>
+<script lang="javascript">
+
+//schauen welcher Parameter übergeben wird. Wichtig für die weiteren schritte.
+function anfang(){
+    rezept = getQueryVariable("r");
+    if(rezept != undefined){
+        rezept = jsUcfirst(rezept);
+    }
+    if (rezept == undefined){
+        if (tag != undefined){
+            daily(tag);
+            set_active();
+        }
+        else{
+            var doc_1 = '<input type="text" name="name" class="form-control" id="zutaten" placeholder="Geben Sie bitte die gewünschte Frucht für Ihre Rezeptsuche ein" required><br><button onclick="such_es()" type="submit" class="btn btn-primary">Suchen</button>';
+            document.getElementById("rezept").innerHTML = doc_1;
+            document.getElementById("inhalt2").innerHTML = "Rezeptsuche";
+            set_active();
+
+        }
+    }
+    else if(rezept=="B%C3%A4rlauch"){
+        get_rezept("wild garlic");
+    }
+    else if(rezept=="S%C3%BC%C3%9Fkirsche"){
+        get_rezept("sweet cherry");
+    }
+    else if(rezept=="Wei%C3%9Fdorn"){
+        get_rezept("hawthorn");
+    }
+    else if(rezept=="Rote%20Johannisbeere"){
+        get_rezept("Redcurrant");
+    }
+    else if(rezept=="Felsenbirne"){
+        get_rezept("pear");
+    }
+    else if(rezept=="Kornelkirsche"){
+        get_rezept("Cornus mas");
+    }
+    else if(rezept=="Mirabelle"){
+        get_rezept("mirabelle plum");
+    }
+    else if(rezept=="Klarapfel"){
+        get_rezept("dessert apple");
+    }
+    else if(rezept=="Vogelkirsche" || rezept=="vogelkirsche"){
+        get_rezept("cherry");
+    }
+    else{rezept_bekommen();}
+}
+init_seite();
+anfang();
+</script>
+</html>

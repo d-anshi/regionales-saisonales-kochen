@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Information zu den Früchten</title>
+	<!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.transitions.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <script lang="javascript">
+            /////get frucht
+            var frucht = getQueryVariable("f");
+            function getQueryVariable(variable){
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++)
+                {
+                    var pair = vars[i].split("=");
+                    if(pair[0] == variable)
+                    {
+                        return pair[1];
+                        }
+                    }
+            }
+            console.log(frucht);
+
+            // Funktion des Suchen Buttons
+            function such_es(){
+                var frucht_suche = document.getElementById("frucht_suche").value;
+                console.log(frucht_suche);
+                if (frucht_suche == ""){return};
+                frucht_suche = frucht_suche.toLowerCase();
+                document.getElementById("change_link").style.visibility = "visible";
+                location.href = "info.html?f="+frucht_suche;
+            };
+
+            // die Suchfunktion der Startseite (Parameter f=start)
+            function suchen(){
+                var doc_1 = '<input type="text" name="name" class="form-control" id="frucht_suche" placeholder="Geben Sie bitte die gewünschte Frucht für Ihre Informationssuche ein." required><br><button onclick="such_es()" type="submit" class="btn btn-primary">Suchen</button>';
+                document.getElementById("inhalt").innerHTML = doc_1;
+                document.getElementById("change_link").style.visibility = "hidden";
+            }
+
+            //switchen der Bilder mit den den Statistiken
+            function double_button_active(id, info){
+                console.log(info+id);
+                document.getElementById('double-button-button1').className = "button1";
+                document.getElementById('double-button-button2').className = "button2";
+                document.getElementById('double-button-button'+id).className = "button"+id+"-active";
+                document.getElementById("img-stats").src="images/diagrams/ddorf_"+info+id+".png";
+            }
+            
+            //aktivierung der navigationsbar
+            function get_active(id){
+            document.getElementById('frucht').className = "scoll";
+            document.getElementById('beere').className = "scoll";
+            document.getElementById('nuss').className = "scoll";
+            document.getElementById('kraut').className = "scoll";
+            document.getElementById(id).className = "scoll active";
+            }
+
+            ///// füll info Hier werden alle Informationstexte geladen und je nach Parameter ausgegeben.
+           function frucht_info (die_frucht) {
+                var elem;
+                document.getElementById("change_link").text = "Zum Rezept";
+                if(document.getElementById("change_link").style.visibility == "hidden"){
+                    document.getElementById("change_link").style.visibility = "visible";
+                }
+                if (die_frucht == "mandel"){
+                    elem = '<div class="text-center wow fadeInDown texto">Wie der botanische Name „Prunus“, der von dem griechischen Wort „proumnon“ (προῦμνον) für Pflaume abstammt, entspringt das deutsche Lehnwort „Mandel“ ebenfalls einem griechischen Begriff (amygdálē (ἀμυγδάλη)), welcher sowohl für die Frucht als auch den Baum verwendet wurde. </div><br>\
+						<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/mandel.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Obwohl Mandeln allgemein häufig als Nüsse klassifiziert werden, gehören sie in Wirklichkeit zu der Familie der Rosengewächse. Dem botanischen Namen „Prunus“ werden je nach Art noch weitere Begriffe zur Klassifizierung hinzugefügt. So heißen süße Arten beispielsweise „prunus dulcis“ und bittere Sorten „prunus amara“. Die Steinfrüchte der Mandelbäume wechseln ihre Farbe im Prozess der Reife von grün zu braun und springen bei endgültiger Reife auf, sodass der genießbare Kern zum Vorschein kommt. Die Samen selbst besitzen eine orange-braune Farbe und einen cremefarbenen, gold-gelben Kern. Der Geschmack des Samens ist je nach Art entweder süß oder bitter. Süße Mandeln können roh verspeist werden, sind aber auch in vielen Mehlspeisen, Likören und weiteren Produkten, wie beispielsweise Marzipan, enthalten. Außerdem sind gebrannte Mandeln als Speise sehr beliebt. Bittere Mandeln sollten dagegen nicht roh verzehrt werden, da sie Amygdalin enthalten. Weitere beliebte Mandelprodukte sind Mandelmilch, Mandelöl oder Mandelmus. Außerdem wird der Mandel eine gesundheitsfördernde Wirkung nachgesagt. Sie soll vor allem die Wahrscheinlichkeit von Herz-Kreislauf-Erkrankungen senken.</p>'+
+						'<br><h4 class="text-center wow fadeInDown">Düsseldorfer Jahresübersicht</h4>'+
+                        '<div id="double-button"><button class="button1-active" onclick="double_button_active(1, \'mandel\')" id="double-button-button1"><i class="fa fa-bar-chart"></i></button><button class="button2" onclick="double_button_active(2, \'mandel\')" id="double-button-button2"><i class="fa fa-table"></i></button></div>'+
+                        '<br><div class="fancyboxIframe wow fadeInDown"><img id="img-stats" class="img-responsive" src="images/diagrams/ddorf_mandel1.png" alt=""></div>'+
+                        '<br><br><br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4><i class="iframegoogle"><iframe width="376" height="166" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=780908832&amp;format=interactive"></iframe></i>' +
+						'<h4 class="text-center wow fadeInDown">Vitamingehalt in 100 g</h4><i class="iframegoogle"><iframe width="674" height="214" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vShiEvrgJEv8Tgyhq-WdOWUY1f1q5P79fBBIbjaivz5-XaVeu6C7VU6pkQzZqcq9Dyh5w2xBzWUPynR/pubchart?oid=1532366731&amp;format=interactive"></iframe></i>'+
+						'<h4 class="text-center wow fadeInDown">Besonders reich an Elementen:</h4><i class="iframegoogle"><iframe width="493" height="244" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vShiEvrgJEv8Tgyhq-WdOWUY1f1q5P79fBBIbjaivz5-XaVeu6C7VU6pkQzZqcq9Dyh5w2xBzWUPynR/pubchart?oid=1182259151&amp;format=interactive"></iframe></i>' +
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("nuss");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+                else if (die_frucht == "sauerkirsche"){
+                   elem = '<div class="text-center wow fadeInDown texto">Sauerkirschen können als Büsche, Sträucher und Bäume wachsen und variieren daher stark in ihrer Größe von etwa einem Meter bis hin zu 10 Metern.</div>\
+						<br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/sauerkirsche.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Die Sauerkirsche, auch bekannt als Weichselkirsche oder Weichsel, zählt trotz der variierenden Größe zu der Familie der Rosengewächse. Verbreitet ist die Sauerkirsche beinahe auf der ganzen nördlichen Halbkugel. Sie verwildert in vielen Fällen und wächst besonders gut auf nährstoffreichen Lehmböden. Die Frucht selbst zählt zu den Steinfrüchten und kann eine Größe von 15 bis 20 Millimeter im Durchmesser erreichen. Sauerkirschen sind kugelförmig und zeichnen sich durch eine hellrote bis schwarz-rote Farbe aus. Die Früchte haben einen säuerlichen Geschmack, was zu dem Namen „Sauerkirsche“ hervorragend passt. Der Kern der Früchte kann bis zu 10 Millimeter Länge erreichen und sollte vor dem Verspeisen entfernt werden. Unter dem Begriff „Sauerkirsche“ werden viele verschiedene Sorten von Kirschen zusammengefasst, die sich vor allem in die Gruppen „Glaskirschen“, „Süßweichseln“ und „Schattenmorellen“ einteilen lassen.</p>'+
+						'<br><h4 class="text-center wow fadeInDown">Düsseldorfer Jahresübersicht</h4>'+
+                        '<div id="double-button"><button class="button1-active" onclick="double_button_active(1, \'sauerkirsche\')" id="double-button-button1"><i class="fa fa-bar-chart"></i></button><button class="button2" onclick="double_button_active(2, \'sauerkirsche\')" id="double-button-button2"><i class="fa fa-table"></i></button></div>'+
+                        '<br><div class="fancyboxIframe wow fadeInDown"><img id="img-stats" class="img-responsive" src="images/diagrams/ddorf_sauerkirsche1.png" alt=""></div>'+
+                        '<br><br><br><h2 class="text-center wow fadeInDown">Infostatistik</h2> '+
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4><i class="iframegoogle"><iframe width="404" height="165" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=757455226&amp;format=interactive"></iframe></i>'+
+						'<h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/sauerkirsche1.png" alt=""></div>'+
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("frucht");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+                else if (die_frucht == "suesskirsche" || die_frucht == "kirsche" || die_frucht == "s%C3%BC%C3%9Fkirsche"){
+                     elem = '<div class="text-center wow fadeInDown texto">Der Begriff „Süßkirsche“ ist umgangssprachlich und umfasst unterschiedliche Sorten der Vogelkirsche (Prunus avium). Das Wort „avium“ leitet sich dabei vom lateinischen Wort für Vogel ab, da Süßkirschen gerne von Vögeln gefressen werden.</div>\
+							<br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/suesskirsche.jpg" alt=""></div> \
+							<br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>' +
+							'<br><p class="texto">Die Vogelkirsche zählt ebenso wie die Sauerkirsche zu der Gattung der Rosengewächse. Die Zuchtformen Knorpelkirsche und Herzkirsche stammen von der wilden Vogelkirsche ab und sind allgemein als Süßkirschen bekannt, da sie wesentlich süßere Früchte tragen. Vogelkirschen wachsen an Bäumen, die in der Regel zwischen 15 und 20 Meter hoch sind und in seltenen Fällen sogar eine Größe von 30 Metern Höhe erreichen können. Die wilden Vogelkirschen wachsen vor allem in Nadel- und Laubmischwaldgesellschaften, die auch stark von Kraut bewachsen sind. Die Vogelkirsche unterteilt sich grob in die drei Arten „Wilde Vogelkirsche“, „Knorpelkirsche“ und „Herzkirsche“, welche wiederum verschiedenste Unterarten enthalten. Entsprechend können die Farbe der Süßkirsche sowie ihr Geschmack stark variieren. Zumeist sind die Früchte allerdings dem Namen entsprechend süßlich. Die Frucht ist in den meisten Fällen rot, kann aber auch je nach Art schwarz, gelb oder weiß sein.</p>'+
+							'<br><h4 class="text-center wow fadeInDown">Düsseldorfer Jahresübersicht</h4>'+
+                            '<div id="double-button"><button class="button1-active" onclick="double_button_active(1, \'suesskirsche\')" id="double-button-button1"><i class="fa fa-bar-chart"></i></button><button class="button2" onclick="double_button_active(2, \'suesskirsche\')" id="double-button-button2"><i class="fa fa-table"></i></button></div>'+
+                            '<br><div class="fancyboxIframe wow fadeInDown"><img id="img-stats" class="img-responsive" src="images/diagrams/ddorf_suesskirsche1.png" alt=""></div>'+
+                            '<br><br><br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+							'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4><i class="iframegoogle"><iframe width="393" height="170" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=1973805600&amp;format=interactive"></iframe></i>' +
+							'<h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+							'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/suesskirsche1.png" alt=""></div>'+
+							'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    die_frucht = "Süßkirsche";
+                    get_active("frucht");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+                else if (die_frucht == "goldenapfel" || die_frucht == "apfel" || die_frucht == "golden%20delicious"){
+                    elem = '<div class="text-center wow fadeInDown texto">Die Apfelsorte "Golden Delicious" zählt zu den süßesten Apfelsorten, da die Früchte dieser Art in reifem Zustand einen vergleichsweise geringen Säureanteil enthalten. </div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/goldenapfel.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Der Golden Delicious gehört zu den Kulturäpfeln und zählt zur Kategorie Tafelobst. Die Sorte stammt ursprünglich aus West Virginia und wird seit Mitte des 20. Jahrhunderts auch über die Ländergrenzen hinaus angebaut. In Deutschland ist die Reife an günstige klimatische Bedingungen gebunden und die maximale Reife wird erst am Ende der Wachstumsperiode im Herbst erreicht. Wenn die Reifezeit nicht berücksichtigt wird und die Äpfel zu früh geerntet werden, verlieren sie einen Großteil ihres Geschmacks. Außerdem brauchen die Äpfel viel Sonne und können daher einen wässrigen Geschmack bekommen, falls sie längere Zeit im Schatten gereift sind. Die Farbe der Äpfel variiert je nach Reife zwischen grün und gelb. Außerdem kann die Sonnenseite des Apfels leichte Rotfarben annehmen.</p>'+
+                        '<br><h4 class="text-center wow fadeInDown">Düsseldorfer Jahresübersicht</h4>'+
+                        '<div id="double-button"><button class="button1-active" onclick="double_button_active(1, \'goldenapfel\')" id="double-button-button1"><i class="fa fa-bar-chart"></i></button><button class="button2" onclick="double_button_active(2, \'goldenapfel\')" id="double-button-button2"><i class="fa fa-table"></i></button></div>'+
+                        '<br><div class="fancyboxIframe wow fadeInDown"><img id="img-stats" class="img-responsive" src="images/diagrams/ddorf_goldenapfel1.png" alt=""></div>'+
+                        '<br><br><br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4> <br><iframe width="452" height="167" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=91953025&amp;format=interactive"></iframe>'+
+						'<br><br><h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/apfel1.png" alt=""></div>'+
+						'';
+						document.getElementById("inhalt").innerHTML = elem;
+                    die_frucht = "Golden Delicious Apfel";
+                    get_active("frucht");
+                    document.getElementById("change_link").href = "rezepte.html?r=apfel";
+                }
+                else if (die_frucht == "birne"){
+                    elem = '<div class="text-center wow fadeInDown texto">Birnen enthalten nur in sehr geringen Mengen Fruchtsäure (1-3 Gramm pro Liter) und zählen dadurch zu den süßesten Obstsorten.</div>\
+                       	<br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/birne.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>' +
+						'<br><p class="texto">Die Birne zählt zu den Kernobstgewächsen und zur Familie der Rosengewächse. Der Begriff „Birne“ leitet sich von dem lateinischen Begriff „pirum“ ab und entspringt wahrscheinlich ursprünglich dem griechischen Wort für Feuer (πύρ). Entsprechend geht die Bezeichnung auf eine alte Volksetymologie zurück. Die Birne ist sowohl als rohes Obst als auch als Trockenobst genießbar. Außerdem wird die Birne auch für die Herstellung von Obstbränden verwendet. Birnen haben einen sehr geringen Fruchtsäureanteil und zählen dadurch zu den verträglichsten und süßesten Obstsorten. Die Früchte haben zumeist eine gelbe Farbe, können aber ebenso stellenweise orange und rote Farbtöne annehmen.</p>'+
+						'<br><h4 class="text-center wow fadeInDown">Düsseldorfer Jahresübersicht</h4>'+
+                        '<div id="double-button"><button class="button1-active" onclick="double_button_active(1, \'birne\')" id="double-button-button1"><i class="fa fa-bar-chart"></i></button><button class="button2" onclick="double_button_active(2, \'birne\')" id="double-button-button2"><i class="fa fa-table"></i></button></div>'+
+                        '<br><div class="fancyboxIframe wow fadeInDown"><img id="img-stats" class="img-responsive" src="images/diagrams/ddorf_birne1.png" alt=""></div>'+
+                        '<br><br><br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4> <br>' +
+						'<iframe width="447" height="168" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=1987181863&amp;format=interactive"></iframe>'+
+						'<br><br><h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/birne1.png" alt=""></div>'+
+						'';
+						document.getElementById("inhalt").innerHTML = elem;
+                    get_active("frucht");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+                else if (die_frucht == "klarapfel"){
+                    elem = '<div class="text-center wow fadeInDown texto">Der mild-säuerlich schmeckende Klarapfel ist bereits vergleichsweise früh genussreif und zeichnet sich daher eine grüne Farbe aus.</div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/klarapfel.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Der „Weiße Klarapfel“ oder auch kurz „Klarapfel“ zählt zu den Kulturäpfeln und gehört der Kategorie Tafelobst an. Diese Apfelsorte reift schon besonders früh im Jahr und ist entsprechend schon im Juli genießbar. In manchen Gebieten wird dieser Apfel wegen seiner Reifezeit im Juli und um den Festtag des heiligen Jakobus am 25. Juli als „Jakobiapfel“ bezeichnet. Die Äpfel neigen zu variabler und asymmetrischer Form und haben eine grün-weiße Farbe, die ursächlich für den Namen dieser Apfelsorte ist. Allerdings kann die Farbe mit zunehmender Reife auch in Gelbtöne übergehen.</p>'+
+						'<br><h4 class="text-center wow fadeInDown">Düsseldorfer Jahresübersicht</h4>'+
+                        '<div id="double-button"><button class="button1-active" onclick="double_button_active(1, \'klarapfel\')" id="double-button-button1"><i class="fa fa-bar-chart"></i></button><button class="button2" onclick="double_button_active(2, \'klarapfel\')" id="double-button-button2"><i class="fa fa-table"></i></button></div>'+
+                        '<br><div class="fancyboxIframe wow fadeInDown"><img id="img-stats" class="img-responsive" src="images/diagrams/ddorf_klarapfel1.png" alt=""></div>'+
+                        '<br><br><br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4> <br>' +
+						'<iframe width="436" height="166" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=803156871&amp;format=interactive"></iframe>'+
+						'<br><br><h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/apfel1.png" alt=""></div>'+
+						'';
+						document.getElementById("inhalt").innerHTML = elem;
+                    get_active("frucht");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+                else if (die_frucht == "rotejohannisbeere" || die_frucht == "rote%20johannisbeere" || die_frucht == "johannisbeere"){
+                    elem = '<div class="text-center wow fadeInDown texto">Obwohl viele Menschen zwischen roten und weißen Johannisbeeren unterscheiden, ist die weiße Version tatsächlich nur eine Farbvariante der roten Johannisbeere.</div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/rote_johannisbeere.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Die rote Johannisbeere ist auch unter den Namen „Garten-Johannisbeere“ und „Rote Ribisel“ bekannt und zählt zur Familie der Stachelbeerengewächse. Rote Johannisbeeren wachsen als Sträucher, welche in ihren Größen zwischen einem und zwei Metern variieren und deren Zweige leicht behaart sind. Die Früchte sind glatt und größtenteils kugelförmig. Trotz des Namens „Rote Johannisbeere“ können die Früchte in der Farbe zwischen Rot, Weiß und sogar Rosa variieren. Die Beere ist saftig und schmeckt leicht säuerlich und kann bereits im rohen Zustand verspeist werden. Die Früchte werden allerdings auch in vielen Fällen zu Gelee oder anderen Produkten weiterverarbeitet oder beim Kochen als Zutat verwendet.</p>'+
+						'<br><h4 class="text-center wow fadeInDown">Düsseldorfer Jahresübersicht</h4>'+
+                        '<div id="double-button"><button class="button1-active" onclick="double_button_active(1, \'rotejohannisbeere\')" id="double-button-button1"><i class="fa fa-bar-chart"></i></button><button class="button2" onclick="double_button_active(2, \'rotejohannisbeere\')" id="double-button-button2"><i class="fa fa-table"></i></button></div>'+
+                        '<br><div class="fancyboxIframe wow fadeInDown"><img id="img-stats" class="img-responsive" src="images/diagrams/ddorf_rotejohannisbeere1.png" alt=""></div>'+
+                        '<br><br><br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4>'+
+						'<i class="iframegoogle"><iframe width="413" height="168" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=1585000858&amp;format=interactive"></iframe></i>'+
+						'<h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/johannisbeere1.png" alt=""></div>'+
+						'<h4 class="text-center wow fadeInDown">Besonders reich an Elementen:</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/johannisbeere2.png" alt=""></div>'+
+						'';
+				   document.getElementById("inhalt").innerHTML = elem;
+                    die_frucht = "Rote Johannisbeere";
+                    get_active("beere");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+                else if (die_frucht == "esskastanie"){
+                    elem = '<div class="text-center wow fadeInDown texto">Die Esskastanie oder Edelkastanie zählt als einzige europäische Frucht zu der Gattung der Kastanien und gehört zu den Buchengewächsen. </div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/esskastanie.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Die Früchte sind allgemein sowohl als Kastanien als auch als Maronen bekannt, wobei die „Kastanie“ eigentlich ein Oberbegriff ist. Die Früchte der Kastanien sind umgeben von einem stacheligen Fruchtbecher, der zunächst eine grüne Farbe aufweist, sich im Laufe der Zeit allerdings gelb-braun färbt. Das Gehäuse der Frucht selbst ist glatt und braun gestreift. Die Kastanien zeichnen sich durch ein hohes Gehalt an Stärke und Kohlenhydraten aus. Kastanien kommen in geschälter Form zahlreich beim Kochen verwendet und werden dabei oft als Beilage serviert. Die Früchte können trocken, vakuumverpackt, in Wasser oder Zuckersirup eingelegt und tiefgefroren gehandelt werden. Aus Kastanien werden außerdem andere Küchenprodukte wie beispielsweise Mehl hergestellt.</p>'+
+						'<br><h4 class="text-center wow fadeInDown">Düsseldorfer Jahresübersicht</h4>'+
+                        '<div id="double-button"><button class="button1-active" onclick="double_button_active(1, \'esskastanie\')" id="double-button-button1"><i class="fa fa-bar-chart"></i></button><button class="button2" onclick="double_button_active(2, \'esskastanie\')" id="double-button-button2"><i class="fa fa-table"></i></button></div>'+
+                        '<br><div class="fancyboxIframe wow fadeInDown"><img id="img-stats" class="img-responsive" src="images/diagrams/ddorf_esskastanie1.png" alt=""></div>'+
+                        '<br><br><br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4>' +
+						'<i class="iframegoogle"></i>'+
+						'<h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/kastanie1.png" alt=""></div>'+
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("nuss");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+                else if (die_frucht == "walnuss"){
+                    elem = '<div class="text-center wow fadeInDown texto">Die Hülle der Walnuss hat eine braune Farbe, während die genießbaren Samen gold-bräunlich sind. Die Samen können sowohl roh verzehrt als auch weiterverarbeitet verspeist werden.</div><br>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/walnuss.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Die echte Walnuss, welche umgangssprachlich einfach als „Walnuss“ bekannt ist, gehört zur Familie der Walnussgewächse. Weitere Namen für die Walnuss sind „Walnussbaum“, „Welschnuss“ oder „Baumnuss“. Die Früchte der Walnuss springen zur Reifezeit auf und hinterlassen den Kern, der als Walnuss bekannt ist. Die Walnuss wurde ursprünglich zu den Steinfrüchten gezählt, wird aber mittlerweile als Nussfrucht eingestuft. Form und Größe der Walnuss sind sehr variabel, so dass diese verschiedene Formen von rund über oval bis eiförmig annehmen kann. So finden sich zahlreiche Produkte der Walnuss in der Küche wieder. Diese Produkte sind beispielsweise Walnussöl oder Krokant. Außerdem kann auch die unreife, grünlich gefärbte Walnuss bereits im Juni geerntet und für die Herstellung von Likören verwendet werden.</p>'+
+						'<br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4>' +
+						'<i class="iframegoogle"><iframe width="395" height="166" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=1660170120&amp;format=interactive"></iframe></i>'+
+						'<h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/wlns1.png" alt=""></div>'+
+						'<br><h4 class="text-center wow fadeInDown">Besonders reich an Elementen:</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/wlns2.png" alt=""></div>'+
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("nuss");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                } 
+
+                else if (die_frucht == "baerlauch" || die_frucht == "b%C3%A4rlauch"){
+                    elem = '<div class="text-center wow fadeInDown texto">Bärlauch zählt zu den Lauch-Arten (Allium) und ist beispielsweise mit Schnittlauch, Knoblauch und der Zwiebel verwandt.</div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/baerlauch.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Der Bärlauch ist ebenso unter den Bezeichnungen „Bärenlauch“, „Knoblauchspinat“, „Wilder Knoblauch“, „Waldknoblauch“, „Rinsenknoblauch“, „Hundsknoblauch“, „Hexenzwiebel“, „Zigeunerlauch“, „Ramsen“ oder „Waldherre“ bekannt und kann entsprechend viele verschiedene Namen annehmen. Die Pflanzen sind krautartig und erblühen über mehrere Jahre immer wieder. Der Bärlauch ist in fast ganz Europa verbreitet und wird als Wildgemüse gerne gesammelt. Die Pflanze ist komplett genießbar und die Blätter werden häufig als Gewürz in der Küche verwendet. Beliebte Produkte, die Bärlauch enthalten, sind beispielsweise Dips, Kräuterbutter oder Pesto. Aufpassen sollten Sammler des Bärlauchs allerdings genau, denn die Pflanzen werden oft mit den äußerst giftigen Maiglöckchen oder dem ebenfalls stark giftigen, gefleckten Aronstab verwechselt. Dem Bärlauch dagegen wird eine heilsame Wirkung zugesprochen, sodass er in der Volksmedizin häufig bei Magen-Darm-Problemen zum Einsatz kommt.</p>'+
+						'<br><br><br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4> <br>' +
+						'<i class="iframegoogle"><iframe width="371" height="164" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=1063682531&amp;format=interactive"></iframe></i>'+
+						'<h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/baerlauch1.png" alt=""></div>'+
+						'<br><h4 class="text-center wow fadeInDown">Besonders reich an Elementen:</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/baerlauch2.png" alt=""></div>'+
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    die_frucht = "Bärlauch";
+                    get_active("kraut");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+
+                else if (die_frucht == "hagebutte"){
+                    elem = '<div class="text-center wow fadeInDown texto">Hagebutten erlangen mit zunehmender Reife immer mehr Süße und sind entsprechend umso süßer je später sie gepflückt werden.</div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/hagebutte.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Hagebutten bezeichnen diejenigen Sammelnussfrüchte, welche an Rosengewächsen auftreten und nicht giftig sind. Außerdem werden die Rosengewächse selbst teilweise als Hagebutten deklariert. Sofern die Nüsschen entfernt worden sind, können Hagebutten roh verspeist werden. Hagebutten reifen in der Regel den ganzen Winter hindurch, sodass die Früchte nach der Frostzeit auch im Frühling noch pflückbar und genießbar sind. Die Früchte finden in getrockneter Form außerdem als Heilpflanze Verwendung. </p>'+
+						'<br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4> <br>' +
+						'<i class="iframegoogle"><iframe width="373" height="164" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=588698917&amp;format=interactive"></iframe></i>'+
+						'<h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/hagebutte1.png" alt=""></div>'+
+						'<br><h4 class="text-center wow fadeInDown">Besonders reich an Elementen:</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/hagebutte2.png" alt=""></div>'+
+						'<br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/hagebutte3.png" alt=""></div>'+
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("frucht");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+
+                else if (die_frucht == "weissdorn" || die_frucht == "wei%C3%9Fdorn"){
+                    elem = '<div class="text-center wow fadeInDown texto">Der Name „Weißdorn“ kann entweder auf die weißen Blüten zurückgeführt werden oder mit der hellen Rinde, die sich von dem „Schwarzdorn“ unterscheidet, in Verbindung gebracht werden. Die Früchte der Weißdorn sind allerdings in der Regel rot.</div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/weissdorn.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Die Weißdorne gehört zu den Kernobstgewächsen aus der Familie der Rosengewächse und umfasst 200 bis 300 verschiedene Arten. In Deutschland gibt es beispielsweise allein drei unterschiedliche Arten, die allerdings meist nur von Experten auseinandergehalten werden können. Die Weißdorne ist unter zahlreichen unterschiedlichen Namen wie beispielsweise „Hagedorn“, „Heckendorn“ oder „Hagapfel“ bekannt. Der Weißdorn wächst als Strauch oder kleiner Baum und ist mit Dornen ausgestattet. Die Früchte sind bis zu 2 Zentimeter groß und in den meisten Fällen rot oder orange gefärbt. Aufgrund der Vielzahl der Arten gibt es allerdings auch Exemplare mit blauen, schwarzen oder gelben Früchten. Man kann die Früchte im rohen Zustand verspeisen, in dem sie säuerlich-süß schmecken, allerdings von der Konsistenz sehr mehlig sind. Die Frucht wird gerne zu Gelee oder Säften weiterverarbeitet und sogar die Kerne werden teilweise als Kaffeeersatz genutzt. Die Blüten und Blätter sind ebenfalls brauchbar und werden für die Herstellung von Tee verwendet.</p>'+
+						'';
+                    die_frucht = "Weißdorn";
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("beere");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+
+                else if (die_frucht == "felsenbirne"){
+                    elem = '<div class="text-center wow fadeInDown texto">Die Felsenbirne ist eine Unterart der Birne, die in den meisten Fällen als Zierpflanze angebaut wird.</div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/felsenbirne.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Die Felsenbirne zählt zu den Birnen und ist entsprechend eine Kernobstgewächs aus der Familie der Rosengewächse. Felsenbirnen sind auch unter dem Begriff „Amelanchier“ bekannt und wachsen als grüne Sträucher oder auch kleinere Bäume. Die Früchte sind im reifen Zustand dunkelviolett bis blau-schwarz und ähneln von der Form her einem Apfel. Blätter und Kerne der Felsenbirne enthalten säureabspaltende Glykoside und sollten daher nicht verzerrt werden. Unzerkaute Kerne werden allerdings unverdaut wieder ausgeschieden und sind entsprechend harmlos. Der Verzehr von unreifen Felsenbirnen kann ebenfalls zu Magenbeschwerden führen. Felsenbirnen werden hauptsächlich zur Dekoration und Zierde angebaut, haben aber auch genießbare, süß schmeckende Früchte. Diese können beispielsweise auch zu Marmelade weiterverarbeitet werden.</p>'+
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("beere");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+
+                else if (die_frucht == "pflaume"){
+                    elem = '<div class="text-center wow fadeInDown texto">Es gibt weltweit über 2000 Sorten von Pflaumen, wobei „Pflaumen“, „Zwetschgen“, „Mirabellen“ und „Renekloden“ die bekanntesten sind. Die reifen Früchte der Pflaume sind in den meisten Fällen rot-blau gefärbt und bereits im rohen Zustand genießbar.</div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/pflaume.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Die Pflaume oder „Kulturpflaume“ zählt zu den Rosengewächsen und teilt sich ihren Namen mit der an ihr wachsenden Frucht. Pflaumen enthalten zahlreiche Vitamine und stärken das Nervensystem, können allerdings auch eine abführende Wirkung haben. Neben dem rohen Genuss werden Pflaumen oft für die Herstellung von Konfitüren oder Gelees verwendet. Außerdem können sie beim Kochen vielfältig genutzt werden. So dienen sie zum Beispiel bei Wildgerichten gerne zur Beilage als Sauce.</p>'+
+						'<br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4> <br>' +
+						'<i class="iframegoogle"><iframe width="378" height="169" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=649056438&amp;format=interactive"></iframe></i>'+
+						'<h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/pflaume1.png" alt=""></div>'+
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("frucht");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+
+                else if (die_frucht == "haselnuss"){
+                    elem = '<div class="text-center wow fadeInDown texto">Die Haselnuss entwickelt sich zumeist als einsamige, braune Nussfrucht, kann allerdings auch in seltenen Fällen zu einer Doppelhaselnuss heranwachsen.</div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/haselnuss.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Die Haselnuss ist unter den Namen „Gemeine Hasel“ oder „Haselnussstrauch“ bekannt und zählt zu den Birkengewächsen. Die Haselnusssträucher stammen aus Kleinasien sowie Europa und sind in Mitteleuropa in hohem Maße verbreitet. Haselnüsse haben einen hohen Fettgehalt und werden vor allem geröstet oder als Haselnussöl genutzt und finden besonders bei der Herstellung von Back- und Süßwaren Verwendung. Solche Produkte sind beispielsweise Krokant oder Nougat. Interessanterweise ist die Haselnuss eine der wenigen Nusssorten, die aus botanischer Sicht tatsächlich als Nuss eingestuft werden.</p>'+
+						'<br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4> <br>' +
+						'<i class="iframegoogle"><iframe width="371" height="172.5" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=217651199&amp;format=interactive"></iframe></i>'+
+						'<h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/haselnuss1.png" alt=""></div>'+
+						'<br><h4 class="text-center wow fadeInDown">Besonders reich an Elementen:</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/haselnuss2.png" alt=""></div>'+
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("nuss");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+
+                else if (die_frucht == "mirabelle"){
+                    elem = '<div class="text-center wow fadeInDown texto">Aufgrund ihrer gelben Farbe ist die Mirabelle allgemein auch unter dem Namen „gelbe Zwetschge“ bekannt.</div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/mirabelle.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Die Mirabelle zählt zu den Pflaumen und bildet eine Unterart von diesen. Oft wird die Mirabelle mit der Kirschpflaume verwechselt, welche ähnlich aussieht, allerdings eine glattere Haut besitzt und früher im Jahr blüht. Die Früchte haben eine Größe von etwa zwei bis drei Zentimetern im Durchmesser und haben eine kugelige Form. Die Steinfrucht ist zumeist gelb gefärbt und wird zusätzlich von roten Punkten verziert. Das Fruchtfleisch hat einen sehr süßen Geschmack und lässt sich leicht vom Kern ablösen. Die Mirabelle ist roh als Obst genießbar und wird ebenso für die Herstellung von Spirituosen verwendet.</p>'+
+						'<br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4> <br>' +
+						'<i class="iframegoogle"><iframe width="375" height="167" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=1870402469&amp;format=interactive"></iframe></i>'+
+						'<h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/mirabelle1.png" alt=""></div>'+
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("frucht");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+
+                else if (die_frucht == "kornelkirsche"){
+                    elem = '<div class="text-center wow fadeInDown texto">Im Gegensatz zu Süßkirschen und Sauerkirschen gehört die Kornelkirsche nicht zur Art der Rosengewächse und zählt stattdessen zu den Hartriegelgewächsen.</div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/kornelkirsche.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Die Kornelkirsche ist unter sehr vielen verschiedenen Namen bekannt. So wird sie teilweise als „Herlitze“, „Dürlitze“ oder „Hirlnuss“ bezeichnet und ist in Österreich ebenso unter den Bezeichnungen „Dirndl“, „Dirndling“, „Dirndlstrauch“. Eine weitere Bezeichnung ist der Begriff „Gelber Hartriegel“ entsprechend der Pflanzengattung. Die Kornelkirsche wächst als Großstrauch oder auch Baum heran und zählt aufgrund ihrer frühen Blütezeit zu den wichtigen Bienennährpflanzen. Trotz des gemeinsamen Namens „Kirsche“ sind die Früchte der Kornelkirsche, auch „Kornellen“ genannt, aus botanischer Sicht nicht mit den anderen Kirschen verwandt. Allerdings zählen die Früchte ebenso zu den Steinfrüchten und enthalten einen Kern. Es gibt sehr viele Sorten der Kornelkirsche, wodurch die Farbe der Frucht beispielsweise zwischen gelb, weiß und rot variieren kann. Die Früchte sind zum Ende der Reife genießbar und nehmen in diesem Zustand zumeist eine dunkelrote bis schwarzrote Farbe an. Die Früchte schmecken süß und können nach dem Entfernen des Kerns roh verspeist werden. Kornelkirschen werden außerdem in der Medizin als Heilmittel verwendet und haben verschiedenste heilsame Wirkungen. Aufgrund der Verwendung der Kornellen gegen die „rote Ruhr“ sind sie beispielsweise ebenso unter dem Namen „Ruhrbeere“ bekannt.</p>'+
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("frucht");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+
+                else if (die_frucht == "holunderbeere"){
+                    elem = '<div class="text-center wow fadeInDown texto">Dem Volks- und Aberglauben nach wird die Holunder mit vielen verschiedenen Glücken und Unglücken in Verbindung gebracht. Entsprechend gibt es verschiedenste Mythen und Rituale, welche sich um die Holunder ranken.</div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/holunderbeere.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Die Holunder gehört zur Gattung der Moschuskrautgewächse, von denen drei Arten in Europa beheimatet sind. Die „Schwarze Holunder“ ist dabei die bekannteste und wird zumeist einfach nur als „Holunder“ bezeichnet. Die Holunder wird vor allem für die Herstellung von Tee verwendet, welcher bei Halsschmerzen Linderung verschafft. Sowohl die Blätter als auch die Früchte der schwarzen Holunder enthalten allerdings kleine Mengen von unverträglichen Glycosiden, die in hohen Mengen konsumiert beim Menschen zu erbrechen und ähnlichen Symptomen führen können. Entsprechend ist eine Verarbeitung durch Erhitzen vor dem Verzehr empfehlenswert, da durch das Erwärmen die Giftstoffe abgebaut werden. </p>'+
+						'<br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4> <br>' +
+						'<i class="iframegoogle"><iframe width="375" height="165" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=230057545&amp;format=interactive"></iframe></i>'+
+						'<h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/holunderbeere1.png" alt=""></div>'+
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("beere");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+
+                else if (die_frucht == "brombeere"){
+                    elem = '<div class="text-center wow fadeInDown texto">Brombeeren können in ihrer Farbe von rot bis blau-schwarz variieren, wobei die blau-schwarze Farbe vornehmlich im ausgereiften Zustand auftritt.</div>\
+                        <br><div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/jahreszeit/brombeere.jpg" alt=""></div> \
+                        <br><h2 class="text-center wow fadeInDown">Wissen Sie?</h2>'+
+						'<br><p class="texto">Die Brombeere gehört zur Pflanzengattung „rubus“, welche wiederum zu den Rosengewächsen zählt. Die Bezeichnung „Brombeere“ leitet sich vom althochdeutschen Begriff für „Dorngebüschbeere“ ab. Die Brombeeren wachsen an wintergrünen Sträuchern, welche im Frühjahr Laub abwerfen. Aus botanischer Sicht zählen die Brombeeren allerdings nicht zu den Beeren, sondern zu den Sammelsteinfrüchten. Gleiches gilt für die „Dornen“ der Sträucher, die aus botanischer Sicht als Stacheln eingestuft werden. Brombeeren sind sowohl frisch und roh verzehrbar als auch zum Kochen und zur Herstellung von beispielsweise Konfitüre oder Weinbränden verwendbar. Außerdem können die Blätter der Brombeersträucher für die Teeproduktion genutzt werden.</p>'+
+						'<br><h2 class="text-center wow fadeInDown">Infostatistik</h2>' +
+						'<br><h4 class="text-center wow fadeInDown">Nährwerte pro 100 g</h4> <br>' +
+						'<i class="iframegoogle"><iframe width="383" height="169" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSBJt4TNJDS3TfXZymf6bKZjiKF9hUwZ_yncXtIVoZP7OluDb6vScRcV_5M31HMb9vVyGB8JjaxkJVU/pubchart?oid=1935523717&amp;format=interactive"></iframe></i>'+
+						'<h4 class="text-center wow fadeInDown">Vitamine & Mineralstoffe & Spurenelemente in 100 g</h4>'+
+						'<div class="fancyboxIframe wow fadeInDown"><img class="img-responsive" src="images/diagrams/brombeere1.png" alt=""></div>'+
+						'';
+					document.getElementById("inhalt").innerHTML = elem;
+                    get_active("beere");
+                    document.getElementById("change_link").href = "rezepte.html?r="+die_frucht;
+                }
+
+                // anpassen für Handys (responsive style)
+                else if (die_frucht == "start"){
+                    suchen();
+                    die_frucht="Informationssuche";
+                    function at_media(x) {
+                        if (x.matches) { // If media query matches
+                            die_frucht="Informations-suche";;
+                        } else {
+                            die_frucht="Informationssuche";;
+                        }
+                        }
+                    var x = window.matchMedia("(max-width: 524px)");
+                    at_media(x);
+                    x.addListener(at_media);
+                }
+
+                else if (die_frucht == undefined){
+                    document.getElementById("inhalt").innerHTML = '<img src="images/404-Page.png" alt=""><br><br>Irgendetwas ist falsch gelaufen. Bitte versuch es erneut!';
+                    die_frucht = "404 - Page error";
+                    get_active("home");
+                    document.getElementById("change_link").text = "Zurück zur Suche";
+                }
+                else{
+                    document.getElementById("change_link").text = "Zurück zur Suche";
+                    }
+
+                document.getElementById("inhalt2").innerHTML = die_frucht;
+            }
+    </script>
+
+    <style>
+        .fancyboxIframe{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        };
+
+        li {
+        display: block;
+        transition-duration: 0.5s;
+        }
+
+        li:hover {
+        cursor: pointer;
+        }
+        
+        #double-button{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        
+        #double-button .button1{
+            background: rgb(56, 92, 56);
+            width: 50%;
+            float: left;
+        }
+        
+        #double-button .button1-active{
+            background: darkgreen;
+            width: 50%;
+            float: left;
+        }
+
+        #double-button .button2{
+            background: rgb(56, 92, 56);
+            width: 50%;
+            float: right;
+        }
+
+        #double-button .button2-active{
+            background: darkgreen;
+            width: 50%;
+            float: right;
+        }
+
+        #double-button i{
+            /*background: rgb(255, 255, 255);*/
+            font: bold;
+            
+        }
+        #double-button .fa-table {
+            font:larger;
+            color: white;
+        }
+        #double-button .fa-bar-chart {
+            font:larger;
+            color: white;
+        }
+
+        ul li ul {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        transition: all 0.5s ease;
+        margin-top: 1rem;
+        left: 0;
+        display: none;
+        }
+
+        ul li:hover > ul,
+        ul li ul:hover {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+        }
+
+        ul li ul li {
+        clear: both;
+        width: 130%;
+        }
+
+        .iframegoogle{
+            overflow: hidden;
+            padding-top: 56.25%;
+            margin-bottom: -30%;
+            position: relative;
+
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 55%;
+        }
+
+        .iframegoogle iframe {
+            border: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .texto{
+            margin-left: auto;
+            margin-right: auto;
+            width: 60%;
+            /*text-align: justify;*/
+        }
+
+        @media (max-width:992px){
+            .iframegoogle{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: auto;
+                margin-bottom: -50px;
+            }
+            .texto{
+            margin-left: none;
+            margin-right: none;
+            width: 100%;
+            /*text-align: justify;*/
+            }
+        }
+    </style>
+
+</head><!--/head-->
+<body>
+        <header id="header">
+                <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                        </div>
+
+                        <!-- Navigationsbar-->
+                        <div class="collapse navbar-collapse navbar-right">
+                            <ul class="nav navbar-nav">
+                                <li id="home" class="scroll"><a href="index.html">Home</a></li>
+                                <li id="frucht" class="scroll"><a href="#">Früchte</a><ul class="dropdown">
+                                    <li>Kirsche<ul class="dropdown">
+                                            <li onclick = "frucht_info('sauerkirsche')">Sauerkirsche</li>
+                                            <li onclick = "frucht_info('suesskirsche')">Süßkirsche</li>
+                                            <li onclick = "frucht_info('kornelkirsche')">Kornelkirsche</li>
+                                    </ul></li>
+                                    <li onclick = "frucht_info('birne')">Birne</li>
+                                    <li onclick = "frucht_info('pflaume')">Pflaume</li>
+                                    <li onclick = "frucht_info('mirabelle')">Mirabelle</li>
+                                    <li onclick = "frucht_info('hagebutte')">Hagebutte</li>
+                                    <li>Apfel<ul class="dropdown">
+                                        <li onclick = "frucht_info('goldenapfel')">Golden Delicious</li>
+                                        <li onclick = "frucht_info('klarapfel')">Klarapfel</li>
+                                    </ul></li>
+                                </ul></li>
+                                <li id="beere" class="scroll"><a href="#">Beeren</a><ul class="dropdown">
+                                    <li onclick = "frucht_info('rotejohannisbeere')">Rote Johhannisbeere</li>
+                                    <li onclick = "frucht_info('weissdorn')">Weißdorn</li>
+                                    <li onclick = "frucht_info('felsenbirne')">Felsenbirne</li>
+                                    <li onclick = "frucht_info('holunderbeere')">Holunderbeere</li>
+                                    <li onclick = "frucht_info('brombeere')">Brombeere</li>
+                                </ul></li>
+                                <li id="nuss" class="scroll"><a href="#">Nüsse</a><ul class="dropdown">
+                                    <li onclick = "frucht_info('walnuss')">Walnuss</li>
+                                    <li onclick = "frucht_info('mandel')">Mandel</li>
+                                    <li onclick = "frucht_info('haselnuss')">Haselnuss</li>
+                                    <li onclick = "frucht_info('esskastanie')">Esskastanie</li>
+                                </ul></li>
+                                <li id="kraut" class="scroll"><a href="#">Kräuter</a><ul class="dropdown">
+                                    <li onclick = "frucht_info('baerlauch')">Bärlauch</li>
+                                </ul></li>
+                                <li class="scroll"><a href="index.html#get-in-touch">Kontakt</a></li>
+                            </ul>
+                        </div>
+                    </div><!--/.container-->
+                </nav><!--/nav-->
+            </header><!--/header-->
+
+            <div class="container">
+                    <div class="section-header">
+                        <br>
+                        <h2 class="section-title text-center wow fadeInDown" id="inhalt2"></h2>
+                        <p class="text-center wow fadeInDown" id="inhalt"><b>Hierüber haben wir leider keine Informationen!</b></p>
+
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <a id="change_link" class="btn btn-primary btn-lg" href="info.html?f=start">Zum Rezept!</a>
+                        <br><br>
+                    </div>
+                </div>
+
+</body>
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                &copy; 2019 SR Kochen.
+            </div>
+            <div class="col-sm-6">
+                <ul class="social-icons">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="#"><i class="fa fa-flickr"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer><!--/#footer-->
+<script>
+// Parameter bekommen und die Haupt JS der Webseite damit aufrufen.
+frucht_info(frucht);
+</script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!--<script src="http://maps.google.com/maps/api/js?sensor=true"></script>-->
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/mousescroll.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/jquery.isotope.min.js"></script>
+<script src="js/jquery.inview.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/main.js"></script>
+</html>
